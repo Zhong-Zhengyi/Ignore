@@ -1,0 +1,30 @@
+# @package eval.tofu.metrics.semantic_accuracy_retain
+defaults:
+  - ../../data/datasets@datasets.TOFU_QA_retain: TOFU_QA_retain
+  - ../../collator@collators: DataCollatorForSupervisedDatasetwithIndex
+  # ^ get default dataset and generation config information
+
+handler: semantic_accuracy_retain
+batch_size: 4  # 可根据API速率和显存调整
+api_key: ['your api-key1', 'your api-key2'] 
+
+# 传递给metric的参数
+forget_split: ${eval.tofu.forget_split}
+retain_split: ${eval.tofu.retain_split}
+
+# 数据集配置（可根据实际需要覆盖）
+datasets:
+  TOFU_QA_retain:
+    handler: QADataset
+    args:
+      hf_args:
+        name: ${eval.tofu.retain_split}
+        path: "locuslab/TOFU"
+        split: "train"
+      question_key: ${eval.tofu.question_key}
+      predict_with_generate: True
+
+# collators:
+#   DataCollatorForSupervisedDatasetwithIndex:
+#     args:
+#       padding_side: left
