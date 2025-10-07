@@ -1,0 +1,20 @@
+model_args:
+  pretrained_model_name_or_path: "meta-llama/Llama-2-7b-hf"
+  attn_implementation: 'flash_attention_2'
+  torch_dtype: bfloat16
+  output_attentions: False
+tokenizer_args:
+  pretrained_model_name_or_path: "meta-llama/Llama-2-7b-hf"
+template_args:  # Used in creating prompts for the dataset. See src/data/utils.py#preprocess_chat_instance.
+  apply_chat_template: False
+  # user_start_tag: "Question: "
+  # user_end_tag: "\n"
+  # asst_start_tag: "Answer: "
+  # asst_end_tag: "\n\n"
+  # apply_chat_template: True
+  system_prompt: You are a helpful assistant.
+  system_prompt_with_special_tokens: "<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n"
+  user_start_tag: "<|im_start|>user\n"
+  user_end_tag: "<|im_end|>\n"
+  asst_start_tag: "<|im_start|>assistant\n"
+  asst_end_tag: "<|im_end|>\n" 
