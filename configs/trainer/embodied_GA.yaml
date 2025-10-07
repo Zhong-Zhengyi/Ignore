@@ -1,0 +1,7 @@
+defaults:
+  - finetune
+
+handler: embodied_GA
+# method_args:
+#   tau: 0.8
+#   num_augmented_samples: 32
