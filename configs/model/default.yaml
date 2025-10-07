@@ -1,0 +1,11 @@
+model_args:
+  pretrained_model_name_or_path: null
+  torch_dtype: float16
+  device_map: "cuda"
+  trust_remote_code: true
+
+tokenizer_args:
+  pretrained_model_name_or_path: null
+  trust_remote_code: true
+  padding_side: right
+  truncation_side: right 
