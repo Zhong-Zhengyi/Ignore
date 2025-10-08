@@ -3,7 +3,7 @@
 export MASTER_PORT=$(python -c "import socket; s=socket.socket(); s.bind(('', 0)); print(s.getsockname()[1]); s.close()")
 echo "Master Port: $MASTER_PORT"
 
-# # 设置分布式训练环境变量
+
 # export NCCL_DEBUG=INFO
 # export NCCL_TIMEOUT=3600
 # export NCCL_IB_DISABLE=1
@@ -26,8 +26,7 @@ data_splits=(
 )
 
 trainers=(
-    # "MyUnlearning"
-    "embodied_GA"
+    "Ignore"
     # "GradAscent"
     # "GradDiff"
     # "NPO"
@@ -78,7 +77,7 @@ trainers=(
 
 
 # #########################################################
-# ########### MUSE News Unlearning Scalability ############考察不同遗忘算法在处理规模不一的“遗忘集”时的性能来评估其可扩展性
+# ########### MUSE News Unlearning Scalability ############
 # #########################################################
 
 
@@ -123,7 +122,7 @@ done
 
 
 #########################################################
-########### MUSE News Unlearning sustainability #########连续遗忘请求的验证
+########### MUSE News Unlearning sustainability #########
 #########################################################
 
 

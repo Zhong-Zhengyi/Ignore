@@ -4,7 +4,7 @@
 export MASTER_PORT=$(python -c "import socket; s=socket.socket(); s.bind(('', 0)); print(s.getsockname()[1]); s.close()")
 echo "Master Port: $MASTER_PORT"
 
-# 设置分布式训练环境变量
+
 export NCCL_DEBUG=INFO
 export NCCL_TIMEOUT=1800
 export NCCL_IB_DISABLE=1
@@ -19,10 +19,7 @@ models=(
     # "Llama-3.2-3B-Instruct"
 )
 trainers_experiments=(
-    # "MyUnlearning unlearn/tofu/idk.yaml"
-    # "MyUnlearning unlearn/tofu/default.yaml"
-    # "MyUnlearning unlearn/tofu/generate.yaml"
-    "embodied_GA unlearn/tofu/default.yaml"
+    "Ignore unlearn/tofu/default.yaml"
     # "GradAscent unlearn/tofu/default.yaml"
     # "GradDiff unlearn/tofu/default.yaml"
     # "NPO unlearn/tofu/default.yaml"

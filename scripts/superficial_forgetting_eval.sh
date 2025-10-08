@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Superficial Forgetting评估脚本
-# 用于测试模型的语义遗忘能力
-
-# 设置环境变量
 export CUDA_VISIBLE_DEVICES=0
 
 
@@ -14,10 +10,7 @@ models=(
     # "Llama-3.2-3B-Instruct"
 )
 trainers_experiments=(
-    # "MyUnlearning unlearn/tofu/idk.yaml"
-    # "MyUnlearning unlearn/tofu/default.yaml"
-    # "MyUnlearning unlearn/tofu/generate.yaml"
-    # "embodied_GA unlearn/tofu/default.yaml"
+    # "Ignore unlearn/tofu/default.yaml"
     # "GradAscent unlearn/tofu/default.yaml"
     # "GradDiff unlearn/tofu/default.yaml"
     "NPO unlearn/tofu/default.yaml"
@@ -52,7 +45,7 @@ for split in "${splits[@]}"; do
             model_path=saves/unlearn/tofu_${model}_${forget_split}_${trainer}
             echo ${task_name}: Unlearning ${model_path} using ${trainer}
 
-            # 运行评估
+            
             python src/eval.py \
                 experiment=eval/tofu/default.yaml \
                 augmented_data_path=${augmented_data_path} \
