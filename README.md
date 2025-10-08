@@ -1,6 +1,6 @@
 # Beyond Lexical Forgetting: Gradient Agreement Optimization for Semantic Unlearning in LLMs
 Welcome to the repository! This is the detailed implementation of our project. We hope this code will serve as a valuable resource for understanding our work and its application. Thank you for your interest and support!
-![method.jpg](method.jpg)
+![method.png](method.png)
 
 
 ## Dependencies
